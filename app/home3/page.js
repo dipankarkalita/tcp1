@@ -1,4 +1,6 @@
 import Image from "next/image";
+import myImage from "@/public/images/img3.jpg"
+import logo from "@/public/images/logo.jpeg"
 import {
   Menu,
   X,
@@ -23,68 +25,55 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800">
+    <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-600">TCP Pro</div>
+           <div className=" text-2xl font-bold flex text-red-600 flex justify-between items-center">
+                      <Image src={logo} alt="Company Logo" width={50} height={50} className="p-2"/>
+                      TCP Pro
+                      </div>
           <nav className="hidden md:flex space-x-6">
-            <a
-              href="#"
-              className="text-gray-600 hover:text-blue-600 transition duration-300"
-            >
-              Home
-            </a>
-            <a
-              href="#services"
-              className="text-gray-600 hover:text-blue-600 transition duration-300"
-            >
-              Services
-            </a>
-            <a
-              href="#industries"
-              className="text-gray-600 hover:text-blue-600 transition duration-300"
-            >
-              Industries
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-600 hover:text-blue-600 transition duration-300"
-            >
-              Contact Us
-            </a>
+            {["Home", "Services", "Industries", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-gray-600 hover:text-red-600 transition duration-300"
+              >
+                {item}
+              </a>
+            ))}
           </nav>
-          <button className="md:hidden">
-            <Menu className="h-6 w-6 text-gray-600" />
+          <button className="md:hidden bg-white border border-gray-300 p-2 rounded-md">
+            <Menu className="h-6 w-6" />
           </button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-blue-50">
+      <section className="relative py-20 bg-gradient-to-r from-red-50 to-gray-50">
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-600">
-                Welcome to TCP Pro
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                Welcome to <span className="text-red-600">TCP Pro</span>
               </h1>
               <p className="text-xl mb-10 text-gray-600 max-w-lg">
-                Your trusted partner for Traffic Control Plans across the USA
+               Your Trusted Nationwide Partner for Traffic Control Plans – Fast Service,
+               Unbeatable Prices Starting at $49! Call 312-222-1111 or 
+               Email sales@tcppro.pro!
               </p>
-              <a
-                href="#contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block text-lg transform hover:scale-105"
-              >
+              <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300">
                 Get Started Today
-              </a>
+              </button>
             </div>
             <div className="md:w-1/2">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src={myImage}
                 alt="Traffic Control"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-xl"
+                className="rounded-lg shadow-2xl transform hover:scale-105 transition duration-300"
               />
             </div>
           </div>
@@ -96,8 +85,8 @@ export default function Home() {
         {/* Why Choose Us Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              Why Choose Us
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              Why Choose <span className="text-red-600">Us</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-12">
               {[
@@ -122,13 +111,17 @@ export default function Home() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-white p-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl"
+                  className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
-                  <item.icon className="h-16 w-16 text-blue-600 mb-6" />
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <div className="flex flex-col items-center">
+                    <item.icon className="h-12 w-12 text-red-600 mb-4" />
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-center">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -136,10 +129,10 @@ export default function Home() {
         </section>
 
         {/* Our Services Section */}
-        <section id="services" className="py-20 bg-gray-100">
+        <section id="services" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              Our Services
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              Our <span className="text-red-600">Services</span>
             </h2>
             <div className="grid md:grid-cols-2 gap-12">
               {[
@@ -182,20 +175,22 @@ export default function Home() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white p-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl"
+                  className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
-                  <service.icon className="h-16 w-16 text-blue-600 mb-6" />
-                  <h3 className="text-2xl font-semibold mb-6 text-blue-600">
-                    {service.title}
-                  </h3>
-                  <ul className="space-y-3 text-gray-600">
-                    {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center">
-                        <ArrowRight className="h-5 w-5 mr-2 text-green-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex flex-col items-center">
+                    <service.icon className="h-12 w-12 text-red-600 mb-4" />
+                    <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                      {service.title}
+                    </h3>
+                    <ul className="space-y-3 text-gray-600">
+                      {service.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="flex items-center">
+                          <ArrowRight className="h-5 w-5 mr-2 text-red-600" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
@@ -205,8 +200,8 @@ export default function Home() {
         {/* Industries We Serve Section */}
         <section id="industries" className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              Industries We Serve
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              Industries We <span className="text-red-600">Serve</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -242,10 +237,10 @@ export default function Home() {
               ].map((industry, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl text-center group"
+                  className="bg-white p-6 rounded-lg shadow-md text-center transition duration-300 transform hover:scale-105 hover:shadow-xl group"
                 >
-                  <industry.icon className="h-16 w-16 text-blue-600 mb-4 mx-auto transition-transform group-hover:scale-110" />
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">
+                  <industry.icon className="h-12 w-12 text-red-600 mb-4 mx-auto transition-transform group-hover:scale-110" />
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">
                     {industry.title}
                   </h3>
                   <p className="text-gray-600">{industry.description}</p>
@@ -256,10 +251,10 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-20 bg-blue-50">
+        <section className="py-20 bg-gradient-to-r from-red-50 to-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              How It Works
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              How It <span className="text-red-600">Works</span>
             </h2>
             <div className="grid md:grid-cols-4 gap-8">
               {[
@@ -289,10 +284,10 @@ export default function Home() {
                 },
               ].map((step, index) => (
                 <div key={index} className="text-center group">
-                  <div className="bg-blue-600 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 text-2xl font-bold transition-transform group-hover:scale-110">
+                  <div className="bg-red-600 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 text-2xl font-bold transition-transform group-hover:scale-110">
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">
                     {step.title}
                   </h3>
                   <p className="text-gray-600">{step.description}</p>
@@ -305,8 +300,8 @@ export default function Home() {
         {/* Project Showcase Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              Our Projects
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              Our <span className="text-red-600">Projects</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -334,7 +329,7 @@ export default function Home() {
                     height={300}
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-red-600 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <h3 className="text-xl font-semibold text-white">
                       {project.title}
@@ -347,10 +342,10 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              What Our Clients Say
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              What Our <span className="text-red-600">Clients Say</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -378,26 +373,24 @@ export default function Home() {
               ].map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl"
+                  className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
-                  <p className="text-gray-600 mb-4 italic">
-                    {testimonial.quote}
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-blue-600 font-bold text-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-red-600 font-bold text-xl">
                         {testimonial.name[0]}
                       </span>
                     </div>
                     <div>
-                      <p className="font-semibold text-blue-600">
+                      <h3 className="text-lg font-semibold text-gray-800">
                         {testimonial.name}
-                      </p>
+                      </h3>
                       <p className="text-sm text-gray-500">
                         {testimonial.role}, {testimonial.company}
                       </p>
                     </div>
                   </div>
+                  <p className="text-gray-600 italic">{testimonial.quote}</p>
                 </div>
               ))}
             </div>
@@ -405,55 +398,88 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-blue-50">
+        <section
+          id="contact"
+          className="py-20 bg-gradient-to-r from-red-50 to-gray-50"
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-blue-600">
-              Get Started Today
+            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
+              Get Started <span className="text-red-600">Today</span>
             </h2>
             <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-semibold mb-6 text-blue-600">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800">
                   Contact Information
                 </h3>
                 <ul className="space-y-4 text-gray-600">
                   <li className="flex items-center">
-                    <Phone className="h-5 w-5 mr-2 text-blue-600" /> (555)
+                    <Phone className="h-5 w-5 mr-2 text-red-600" /> (555)
                     123-4567
                   </li>
                   <li className="flex items-center">
-                    <Mail className="h-5 w-5 mr-2 text-blue-600" />{" "}
+                    <Mail className="h-5 w-5 mr-2 text-red-600" />{" "}
                     info@tcppro.com
                   </li>
                   <li className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2 text-blue-600" /> 123
-                    Traffic Control St, City, State 12345
+                    <MapPin className="h-5 w-5 mr-2 text-red-600" /> 123 Traffic
+                    Control St, City, State 12345
                   </li>
                   <li className="flex items-center">
-                    <Clock className="h-5 w-5 mr-2 text-blue-600" /> Monday –
+                    <Clock className="h-5 w-5 mr-2 text-red-600" /> Monday –
                     Friday, 9 AM – 5 PM
                   </li>
                 </ul>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-lg">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                  Send Us a Message
+                </h3>
                 <form className="space-y-6">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  <textarea
-                    placeholder="Your Message"
-                    rows={4}
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  ></textarea>
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+                    ></textarea>
+                  </div>
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-300 transform hover:scale-105"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
                   >
                     Send Message
                   </button>
@@ -469,7 +495,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-blue-400">
+              <h3 className="text-2xl font-semibold mb-4 text-red-400">
                 TCP Pro
               </h3>
               <p className="mb-4 text-gray-400">
@@ -477,46 +503,24 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">
+              <h3 className="text-xl font-semibold mb-4 text-red-400">
                 Quick Links
               </h3>
               <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-blue-400 transition duration-300"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-blue-400 transition duration-300"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#industries"
-                    className="text-gray-400 hover:text-blue-400 transition duration-300"
-                  >
-                    Industries
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-blue-400 transition duration-300"
-                  >
-                    Contact Us
-                  </a>
-                </li>
+                {["Home", "Services", "Industries", "Contact"].map((item) => (
+                  <li key={item}>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="text-gray-400 hover:text-red-400 transition duration-300"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">
+              <h3 className="text-xl font-semibold mb-4 text-red-400">
                 Stay Connected
               </h3>
               <p className="mb-4 text-gray-400">
@@ -526,11 +530,11 @@ export default function Home() {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="p-2 w-full rounded-l-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="p-2 w-full rounded-l-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-red-400"
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-4 rounded-r-md hover:bg-blue-700 transition duration-300 transform hover:scale-105"
+                  className="bg-red-600 text-white px-4 rounded-r-md hover:bg-red-700 transition duration-300"
                 >
                   Subscribe
                 </button>

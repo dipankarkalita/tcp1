@@ -1,4 +1,6 @@
 import Image from "next/image";
+import myImage from "@/public/images/img1.jpg"
+import logo from "@/public/images/logo.jpeg"
 import {
   Menu,
   X,
@@ -27,7 +29,10 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-red-600">TCP Pro</div>
+          <div className=" text-2xl font-bold flex text-red-600 flex justify-between items-center">
+            <Image src={logo} alt="Company Logo" width={50} height={50} className="p-2"/>
+            TCP Pro
+            </div>
           <nav className="hidden md:flex space-x-6">
             {["Home", "Services", "Industries", "Contact"].map((item) => (
               <a
@@ -54,7 +59,9 @@ export default function Home() {
                 Welcome to <span className="text-red-600">TCP Pro</span>
               </h1>
               <p className="text-xl mb-10 text-gray-600 max-w-lg">
-                Your trusted partner for Traffic Control Plans across the USA
+               Your Trusted Nationwide Partner for Traffic Control Plans – Fast Service,
+               Unbeatable Prices Starting at $49! Call 312-222-1111 or 
+               Email sales@tcppro.pro!
               </p>
               <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300">
                 Get Started Today
@@ -62,7 +69,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src={myImage}
                 alt="Traffic Control"
                 width={600}
                 height={400}
