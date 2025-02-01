@@ -1,6 +1,4 @@
 import Image from "next/image";
-import myImage from "@/public/images/img2.jpg"
-import logo from "@/public/images/logo.jpeg"
 import {
   Menu,
   X,
@@ -28,10 +26,9 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-           <div className=" text-2xl font-bold flex text-red-600 flex justify-between items-center">
-              <Image src={logo} alt="Company Logo" width={50} height={50} className="p-2"/>
-                TCP Pro
+        <div className="container mx-auto px-4 flex justify-between items-center">
+           <div className=" text-2xl font-bold flex text-red-600 justify-between items-center">
+              <Image src={"/images/Logo.jpeg"} alt="Company Logo" width={110} height={100} className="p-2"/>
                 </div>
           <nav className="hidden md:flex space-x-6">
             {["Home", "Services", "Industries", "Contact"].map((item) => (
@@ -69,7 +66,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2">
               <Image
-                src={myImage}
+                src={"/images/img2.jpg"}
                 alt="Traffic Control"
                 width={600}
                 height={400}
