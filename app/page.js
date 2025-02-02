@@ -45,10 +45,10 @@ export default function Home() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-6 font-bold">
             {[
               "Home",
-              "Why Choice",
+              "Why Choose Us",
               "Services",
               "Industries",
               "Our Projects",
@@ -89,7 +89,7 @@ export default function Home() {
         >
           {[
             "Home",
-            "Why Choice",
+            "Why Choice Us",
             "Services",
             "Industries",
             "Our Projects",
@@ -136,7 +136,7 @@ export default function Home() {
               <Image
                 src={"/images/img2.jpg"}
                 alt="Traffic Control"
-                width={600}
+                width={700}
                 height={400}
                 className="rounded-lg shadow-2xl transform hover:scale-105 transition duration-300"
               />
@@ -148,7 +148,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-grow">
         {/* Why Choose Us Section */}
-        <section className="py-20" id="why choice">
+        <section className="py-20" id="why choose us">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
               Why Choose <span className="text-red-600">Us</span>
@@ -366,7 +366,7 @@ export default function Home() {
           <TrafficControlStrategies />
         </section>
         {/* Testimonials Section */}
-        <section className="py-20 bg-gray-50">
+        {/* <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
               What Our <span className="text-red-600">Clients Say</span>
@@ -419,7 +419,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact Section */}
         <section
@@ -543,7 +543,7 @@ export default function Home() {
               <ul className="space-y-2">
                 {[
                   "Home",
-                  "Why Choice",
+                  "Why Choose",
                   "Services",
                   "Industries",
                   "Our Projects",
