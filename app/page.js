@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Menu,
@@ -21,48 +23,107 @@ import {
   ArrowRight,
 } from "lucide-react";
 import TrafficControlStrategies from "@/components/TraficControl";
+import { useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className=" text-2xl font-bold flex text-red-600 justify-between items-center">
+        <div className="container mx-auto px-4 flex justify-between items-center py-1">
+          {/* Logo */}
+          <div className="text-2xl font-bold flex text-red-600">
             <Image
-              src={"/images/Logo.jpeg"}
+              src={"/images/logo1.png"}
               alt="Company Logo"
               width={110}
               height={100}
-              className="p-2"
+              className="p-2 w-20 md:w-28"
             />
           </div>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
-            {["Home", "Services", "Industries", "Contact"].map((item) => (
-              <a
+            {[
+              "Home",
+              "Why Choice",
+              "Services",
+              "Industries",
+              "Our Projects",
+              "Contact",
+            ].map((item) => (
+              <button
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                onClick={() => {
+                  document.getElementById(item.toLowerCase())?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center", // Ensures it scrolls to the top of the section
+                  });
+                }}
                 className="text-gray-600 hover:text-red-600 transition duration-300"
               >
                 {item}
-              </a>
+              </button>
             ))}
           </nav>
-          <button className="md:hidden bg-white border border-gray-300 p-2 rounded-md">
-            <Menu className="h-6 w-6" />
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden bg-white border border-gray-300 p-2 rounded-md"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
+        {/* Mobile Navigation - Slide Down Effect */}
+        <nav
+          className={`md:hidden flex flex-col space-y-4 bg-white px-4 pb-4 transition-all duration-300 ease-in-out ${
+            isOpen
+              ? "max-h-96 opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          {[
+            "Home",
+            "Why Choice",
+            "Services",
+            "Industries",
+            "Our Projects",
+            "Contact",
+          ].map((item) => (
+            <button
+              key={item}
+              onClick={() => {
+                setIsOpen(false); // Close menu after clicking a link
+                document.getElementById(item.toLowerCase())?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }}
+              className="text-gray-600 hover:text-red-600 transition duration-300 text-left"
+            >
+              {item}
+            </button>
+          ))}
+        </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-red-50 to-gray-50">
+      <section
+        className="relative py-20 bg-gradient-to-r from-red-50 to-gray-50"
+        id="home"
+      >
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
                 Welcome to <span className="text-red-600">TCP Pro</span>
               </h1>
-              <p className="text-xl mb-10 text-gray-600 max-w-lg">
+              <p className="text-xl mb-10 text-gray-600 max-w-lg font-semibold">
                 Your Trusted Nationwide Partner for Traffic Control Plans – Fast
                 Service, Unbeatable Prices Starting at $49! Call 312-222-1111 or
                 Email sales@tcppro.pro!
@@ -73,7 +134,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2">
               <Image
-                src={"/images/img1.jpg"}
+                src={"/images/img2.jpg"}
                 alt="Traffic Control"
                 width={600}
                 height={400}
@@ -87,7 +148,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-grow">
         {/* Why Choose Us Section */}
-        <section className="py-20">
+        <section className="py-20" id="why choice">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
               Why Choose <span className="text-red-600">Us</span>
@@ -301,49 +362,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Project Showcase Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              Our <span className="text-red-600">Projects</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Highway Expansion",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Urban Intersection Redesign",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Event Traffic Management",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-              ].map((project, index) => (
-                <div
-                  key={index}
-                  className="relative overflow-hidden rounded-lg shadow-lg group"
-                >
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-red-600 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-xl font-semibold text-white">
-                      {project.title}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
         <section>
           <TrafficControlStrategies />
         </section>
@@ -507,20 +525,46 @@ export default function Home() {
               <p className="mb-4 text-gray-400">
                 Your trusted partner for Traffic Control Plans across the USA.
               </p>
+              <div className="text-2xl font-bold flex text-red-600 relative">
+                <Image
+                  src={"/images/transparentLogo.png"}
+                  alt="Company Logo"
+                  width={110}
+                  height={100}
+                  className="p-2 w-28"
+                />
+                <h2 className="absolute bottom-8 left-[4.1rem] text-20 text-white text-xl font-bold">TCP <spn className="text-red-400">Pro</spn></h2>
+              </div>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4 text-red-400">
                 Quick Links
               </h3>
               <ul className="space-y-2">
-                {["Home", "Services", "Industries", "Contact"].map((item) => (
+                {[
+                  "Home",
+                  "Why Choice",
+                  "Services",
+                  "Industries",
+                  "Our Projects",
+                  "Contact",
+                ].map((item) => (
                   <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
+                    <button
+                      onClick={() => {
+                        document
+                          .getElementById(
+                            item.toLowerCase().replace(/\s+/g, "-")
+                          )
+                          ?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center",
+                          });
+                      }}
                       className="text-gray-400 hover:text-red-400 transition duration-300"
                     >
                       {item}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -530,21 +574,9 @@ export default function Home() {
                 Stay Connected
               </h3>
               <p className="mb-4 text-gray-400">
-                Subscribe to our newsletter for updates and industry insights.
+                Reach out to us via email for updates and industry insights.
               </p>
-              <form className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="p-2 w-full rounded-l-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-red-400"
-                />
-                <button
-                  type="submit"
-                  className="bg-red-600 text-white px-4 rounded-r-md hover:bg-red-700 transition duration-300"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <p className="text-gray-500 font-medium">info@tcppro.com</p>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">

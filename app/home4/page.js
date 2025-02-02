@@ -58,7 +58,7 @@ export default function Home() {
               </h1>
               <p className="text-xl mb-10 text-gray-600 max-w-lg">
                Your Trusted Nationwide Partner for Traffic Control Plans – Fast Service,
-               Unbeatable Prices Starting at $49! Call 312-222-1111 or 
+               Unbeatable Prices Starting at $49! Call 312-222-1111 or
                Email sales@tcppro.pro!
               </p>
               <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300">
