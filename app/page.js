@@ -443,11 +443,8 @@ export default function Home() {
         </section> */}
 
         {/* Contact Section */}
-        <section
-          id="contact"
-          className="py-20 bg-gradient-to-r from-red-50 to-gray-50"
-        >
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-gradient-to-r from-red-50 to-gray-50">
+          <div className="container mx-auto px-4" id="contact">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
               Get Started <span className="text-[#f16104]">Today</span>
             </h2>
@@ -466,8 +463,8 @@ export default function Home() {
                     sales@tcp-pro.com
                   </li>
                   <li className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2 text-[#f16104]" /> 123 Traffic
-                    Control St, City, State 12345
+                    <MapPin className="h-5 w-5 mr-2 text-[#f16104]" /> 123
+                    Traffic Control St, City, State 12345
                   </li>
                   <li className="flex items-center">
                     <Clock className="h-5 w-5 mr-2 text-[#f16104]" /> Monday –

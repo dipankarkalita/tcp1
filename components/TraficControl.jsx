@@ -125,7 +125,7 @@ export default function TrafficControlStrategies() {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-2 md:px-5 "
           onClick={closeModal}
         >
-          <div className="relative md:max-w-md lg:max-w-lg xl:max-w-2xl " onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full md:max-w-md lg:max-w-lg xl:max-w-2xl " onClick={(e) => e.stopPropagation()}>
             <button
               className="absolute -top-10 right-2 bg-white text-gray-800 p-1 pt-1.5 h-8 w-8 rounded-full shadow-lg hover:bg-gray-200 text-center"
               onClick={closeModal}
