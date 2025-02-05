@@ -33,15 +33,24 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 flex justify-between items-center py-2.5">
+        <div className="container mx-auto px-4 flex justify-between items-center pt-2.5 md:py-2.5">
           {/* Logo */}
-          <div className="text-2xl font-bold flex text-red-600">
+          <div
+            className="text-2xl font-bold flex text-red-600 cursor-pointer"
+            onClick={() => {
+              setIsOpen(false); // Close menu after clicking a link
+              document.getElementById("home")?.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }}
+          >
             <Image
               src={"/images/final_logo.jpg"}
               alt="Company Logo"
               width={210}
               height={100}
-              className="p-2 w-20 md:w-28"
+              className="md:p-2 w-28"
             />
           </div>
 
