@@ -36,7 +36,7 @@ export default function Home() {
         <div className="container mx-auto px-4 flex justify-between items-center pt-2.5 md:py-2.5">
           {/* Logo */}
           <div
-            className="text-2xl font-bold flex text-[#f16104]cursor-pointer"
+            className="text-2xl font-bold flex text-[#f16104] cursor-pointer"
             onClick={() => {
               setIsOpen(false); // Close menu after clicking a link
               document.getElementById("home")?.scrollIntoView({
@@ -72,7 +72,7 @@ export default function Home() {
                     block: "center", // Ensures it scrolls to the top of the section
                   });
                 }}
-                className="text-gray-600 hover:text-[#f16104]transition duration-300"
+                className="text-gray-600 hover:text-[#f16104] transition duration-300"
               >
                 {item}
               </button>
@@ -114,7 +114,7 @@ export default function Home() {
                   block: "center",
                 });
               }}
-              className="text-gray-600 hover:text-[#f16104]transition duration-300 text-left"
+              className="text-gray-600 hover:text-[#f16104] transition duration-300 text-left"
             >
               {item}
             </button>
@@ -200,7 +200,7 @@ export default function Home() {
                   className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <div className="flex flex-col items-center">
-                    <item.icon className="h-12 w-12 text-[#f16104]mb-4" />
+                    <item.icon className="h-12 w-12 text-[#f16104] mb-4" />
                     <h3 className="text-xl font-semibold mb-4 text-gray-800">
                       {item.title}
                     </h3>
@@ -264,7 +264,7 @@ export default function Home() {
                   className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <div className="flex flex-col items-center">
-                    <service.icon className="h-12 w-12 text-[#f16104]mb-4" />
+                    <service.icon className="h-12 w-12 text-[#f16104] mb-4" />
                     <h3 className="text-2xl font-semibold mb-6 text-gray-800">
                       {service.title}
                     </h3>
