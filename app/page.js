@@ -36,7 +36,7 @@ export default function Home() {
         <div className="container mx-auto px-4 flex justify-between items-center pt-2.5 md:py-2.5">
           {/* Logo */}
           <div
-            className="text-2xl font-bold flex text-red-600 cursor-pointer"
+            className="text-2xl font-bold flex text-[#f16104]cursor-pointer"
             onClick={() => {
               setIsOpen(false); // Close menu after clicking a link
               document.getElementById("home")?.scrollIntoView({
@@ -72,7 +72,7 @@ export default function Home() {
                     block: "center", // Ensures it scrolls to the top of the section
                   });
                 }}
-                className="text-gray-600 hover:text-red-600 transition duration-300"
+                className="text-gray-600 hover:text-[#f16104]transition duration-300"
               >
                 {item}
               </button>
@@ -114,7 +114,7 @@ export default function Home() {
                   block: "center",
                 });
               }}
-              className="text-gray-600 hover:text-red-600 transition duration-300 text-left"
+              className="text-gray-600 hover:text-[#f16104]transition duration-300 text-left"
             >
               {item}
             </button>
@@ -131,14 +131,14 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                Welcome to <span className="text-red-600">TCP Pro</span>
+                Welcome to <span className="text-[#f16104]">TCP Pro</span>
               </h1>
               <p className="text-xl mb-10 text-gray-600 max-w-xl font-semibold">
                 Your Trusted Nationwide Partner for Traffic Control Plans – Fast
                 Service, Unbeatable Prices Starting at{" "}
-                <span className="text-red-600">$49</span>! <br /> Call{" "}
-                <span className="text-red-500">312-222-1111</span> or Email{" "}
-                <span className="text-red-500">sales@tcp-pro.com</span>
+                <span className="text-[#f16104]">$49</span>! <br /> Call{" "}
+                <span className="text-[#f16104]">312-222-1111</span> or Email{" "}
+                <span className="text-[#f16104]">sales@tcp-pro.com</span>
               </p>
               <button
                 onClick={() => {
@@ -148,7 +148,7 @@ export default function Home() {
                     block: "center",
                   });
                 }}
-                className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300"
+                className="bg-[#f16104] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300"
               >
                 Get Started Today
               </button>
@@ -172,7 +172,7 @@ export default function Home() {
         <section className="py-20" id="why choose us">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              Why Choose <span className="text-red-600">Us</span>
+              Why Choose <span className="text-[#f16104]">Us</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-12">
               {[
@@ -200,7 +200,7 @@ export default function Home() {
                   className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <div className="flex flex-col items-center">
-                    <item.icon className="h-12 w-12 text-red-600 mb-4" />
+                    <item.icon className="h-12 w-12 text-[#f16104]mb-4" />
                     <h3 className="text-xl font-semibold mb-4 text-gray-800">
                       {item.title}
                     </h3>
@@ -218,7 +218,7 @@ export default function Home() {
         <section id="services" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              Our <span className="text-red-600">Services</span>
+              Our <span className="text-[#f16104]">Services</span>
             </h2>
             <div className="grid md:grid-cols-2 gap-12">
               {[
@@ -264,14 +264,14 @@ export default function Home() {
                   className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <div className="flex flex-col items-center">
-                    <service.icon className="h-12 w-12 text-red-600 mb-4" />
+                    <service.icon className="h-12 w-12 text-[#f16104]mb-4" />
                     <h3 className="text-2xl font-semibold mb-6 text-gray-800">
                       {service.title}
                     </h3>
                     <ul className="space-y-3 text-gray-600">
                       {service.items.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-center">
-                          <ArrowRight className="h-5 w-5 mr-2 text-red-600" />
+                          <ArrowRight className="h-5 w-5 mr-2 text-[#f16104]" />
                           {item}
                         </li>
                       ))}
@@ -287,7 +287,7 @@ export default function Home() {
         <section id="industries" className="py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              Industries We <span className="text-red-600">Serve</span>
+              Industries We <span className="text-[#f16104]">Serve</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -325,7 +325,7 @@ export default function Home() {
                   key={index}
                   className="bg-white p-6 rounded-lg shadow-md text-center transition duration-300 transform hover:scale-105 hover:shadow-xl group"
                 >
-                  <industry.icon className="h-12 w-12 text-red-600 mb-4 mx-auto transition-transform group-hover:scale-110" />
+                  <industry.icon className="h-12 w-12 text-[#f16104]mb-4 mx-auto transition-transform group-hover:scale-110" />
                   <h3 className="text-xl font-semibold mb-4 text-gray-800">
                     {industry.title}
                   </h3>
@@ -340,7 +340,7 @@ export default function Home() {
         <section className="py-20 bg-gradient-to-r from-red-50 to-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              How It <span className="text-red-600">Works</span>
+              How It <span className="text-[#f16104]">Works</span>
             </h2>
             <div className="grid md:grid-cols-4 gap-8">
               {[
@@ -370,7 +370,7 @@ export default function Home() {
                 },
               ].map((step, index) => (
                 <div key={index} className="text-center group">
-                  <div className="bg-red-600 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 text-2xl font-bold transition-transform group-hover:scale-110">
+                  <div className="bg-[#f16104] text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 text-2xl font-bold transition-transform group-hover:scale-110">
                     {step.number}
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-gray-800">
@@ -390,7 +390,7 @@ export default function Home() {
         {/* <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              What Our <span className="text-red-600">Clients Say</span>
+              What Our <span className="text-[#f16104]">Clients Say</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -422,7 +422,7 @@ export default function Home() {
                 >
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-red-600 font-bold text-xl">
+                      <span className="text-[#f16104]font-bold text-xl">
                         {testimonial.name[0]}
                       </span>
                     </div>
@@ -449,7 +449,7 @@ export default function Home() {
         >
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
-              Get Started <span className="text-red-600">Today</span>
+              Get Started <span className="text-[#f16104]">Today</span>
             </h2>
             <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
               <div className="bg-white p-6 rounded-lg shadow-md">
@@ -458,19 +458,19 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-4 text-gray-600 grid grid-cols-1 md:grid-cols-2">
                   <li className="flex items-center">
-                    <Phone className="h-5 w-5 mr-2 text-red-600" /> (555)
+                    <Phone className="h-5 w-5 mr-2 text-[#f16104]" /> (555)
                     123-4567
                   </li>
                   <li className="flex items-center">
-                    <Mail className="h-5 w-5 mr-2 text-red-600" />{" "}
+                    <Mail className="h-5 w-5 mr-2 text-[#f16104]" />{" "}
                     sales@tcp-pro.com
                   </li>
                   <li className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2 text-red-600" /> 123 Traffic
+                    <MapPin className="h-5 w-5 mr-2 text-[#f16104]" /> 123 Traffic
                     Control St, City, State 12345
                   </li>
                   <li className="flex items-center">
-                    <Clock className="h-5 w-5 mr-2 text-red-600" /> Monday –
+                    <Clock className="h-5 w-5 mr-2 text-[#f16104]" /> Monday –
                     Friday, 9 AM – 5 PM
                   </li>
                 </ul>
@@ -485,13 +485,13 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-red-400">
+              <h3 className="text-2xl font-semibold mb-4 text-[#f16104]">
                 TCP Pro
               </h3>
               <p className="mb-4 text-gray-400">
                 Your trusted partner for Traffic Control Plans across the USA.
               </p>
-              <div className="text-2xl font-bold flex text-red-600 relative">
+              <div className="text-2xl font-bold flex text-[#f16104] relative">
                 <Image
                   src={"/images/transparentLogo.png"}
                   alt="Company Logo"
@@ -505,7 +505,7 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-red-400">
+              <h3 className="text-xl font-semibold mb-4 text-[#f16104]">
                 Quick Links
               </h3>
               <ul className="space-y-2">
@@ -529,7 +529,7 @@ export default function Home() {
                             block: "center",
                           });
                       }}
-                      className="text-gray-400 hover:text-red-400 transition duration-300"
+                      className="text-gray-400 hover:text-[#f16104] transition duration-300"
                     >
                       {item}
                     </button>
@@ -538,7 +538,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-red-400">
+              <h3 className="text-xl font-semibold mb-4 text-[#f16104]">
                 Stay Connected
               </h3>
               <p className="mb-4 text-gray-400">

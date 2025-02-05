@@ -73,7 +73,7 @@ export default function TrafficControlStrategies() {
     >
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center text-gray-800">
-          Our<span className="text-red-600 ml-2">Projects</span>
+          Our<span className="text-[#f16104] ml-2">Projects</span>
         </h1>
 
         <div className="bg-white p-6 rounded-lg shadow-lg mb-12">
@@ -97,7 +97,7 @@ export default function TrafficControlStrategies() {
               }`}
             >
               <div className="md:w-1/2 pr-4 text-center">
-                <h2 className="text-3xl font-semibold mb-4 text-red-600">
+                <h2 className="text-3xl font-semibold mb-4 text-[#f16104]">
                   {strategy.title}
                 </h2>
                 <p className="text-gray-700 font-medium mb-4">
@@ -125,7 +125,7 @@ export default function TrafficControlStrategies() {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-2 md:px-5 "
           onClick={closeModal}
         >
-          <div className="relative" onClick={(e) => e.stopPropagation()}>
+          <div className="relative md:w-[80%]" onClick={(e) => e.stopPropagation()}>
             <button
               className="absolute -top-10 right-2 bg-white text-gray-800 p-1 pt-1.5 h-8 w-8 rounded-full shadow-lg hover:bg-gray-200 text-center"
               onClick={closeModal}
