@@ -92,7 +92,7 @@ export default function TrafficControlStrategies() {
             className="bg-white p-6 rounded-lg shadow-lg mb-8 transition duration-300 transform hover:scale-105"
           >
             <div
-              className={`md:flex items-center ${
+              className={`md:flex items-center gap-5 ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
@@ -122,12 +122,12 @@ export default function TrafficControlStrategies() {
       {/* Modal */}
       {modalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-2 md:px-5 "
           onClick={closeModal}
         >
           <div className="relative" onClick={(e) => e.stopPropagation()}>
             <button
-              className="absolute top-2 right-2 bg-white text-gray-800 p-2 rounded-full shadow-lg hover:bg-gray-200"
+              className="absolute -top-10 right-2 bg-white text-gray-800 p-1 pt-1.5 h-8 w-8 rounded-full shadow-lg hover:bg-gray-200 text-center"
               onClick={closeModal}
             >
               ✕

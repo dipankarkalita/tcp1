@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import TrafficControlStrategies from "@/components/TraficControl";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,13 +33,13 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 flex justify-between items-center py-1">
+        <div className="container mx-auto px-4 flex justify-between items-center py-2.5">
           {/* Logo */}
           <div className="text-2xl font-bold flex text-red-600">
             <Image
-              src={"/images/logo1.png"}
+              src={"/images/final_logo.jpg"}
               alt="Company Logo"
-              width={110}
+              width={210}
               height={100}
               className="p-2 w-20 md:w-28"
             />
@@ -123,12 +124,23 @@ export default function Home() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
                 Welcome to <span className="text-red-600">TCP Pro</span>
               </h1>
-              <p className="text-xl mb-10 text-gray-600 max-w-lg font-semibold">
+              <p className="text-xl mb-10 text-gray-600 max-w-xl font-semibold">
                 Your Trusted Nationwide Partner for Traffic Control Plans – Fast
-                Service, Unbeatable Prices Starting at $49! Call 312-222-1111 or
-                Email sales@tcppro.pro!
+                Service, Unbeatable Prices Starting at{" "}
+                <span className="text-red-600">$49</span>! <br /> Call{" "}
+                <span className="text-red-500">312-222-1111</span> or Email{" "}
+                <span className="text-red-500">sales@tcp-pro.com</span>
               </p>
-              <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300">
+              <button
+                onClick={() => {
+                  setIsOpen(false); // Close menu after clicking a link
+                  document.getElementById("contact")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+                className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300"
+              >
                 Get Started Today
               </button>
             </div>
@@ -430,19 +442,19 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
               Get Started <span className="text-red-600">Today</span>
             </h2>
-            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+            <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
                   Contact Information
                 </h3>
-                <ul className="space-y-4 text-gray-600">
+                <ul className="space-y-4 text-gray-600 grid grid-cols-1 md:grid-cols-2">
                   <li className="flex items-center">
                     <Phone className="h-5 w-5 mr-2 text-red-600" /> (555)
                     123-4567
                   </li>
                   <li className="flex items-center">
                     <Mail className="h-5 w-5 mr-2 text-red-600" />{" "}
-                    info@tcppro.com
+                    sales@tcp-pro.com
                   </li>
                   <li className="flex items-center">
                     <MapPin className="h-5 w-5 mr-2 text-red-600" /> 123 Traffic
@@ -453,61 +465,6 @@ export default function Home() {
                     Friday, 9 AM – 5 PM
                   </li>
                 </ul>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-2xl font-semibold mb-6 text-gray-800">
-                  Send Us a Message
-                </h3>
-                <form className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
-                  >
-                    Send Message
-                  </button>
-                </form>
               </div>
             </div>
           </div>
@@ -533,7 +490,9 @@ export default function Home() {
                   height={100}
                   className="p-2 w-28"
                 />
-                <h2 className="absolute bottom-8 left-[4.1rem] text-20 text-white text-xl font-bold">TCP <spn className="text-red-400">Pro</spn></h2>
+                <h2 className="absolute bottom-8 left-[4.2rem] text-20 text-white text-2xl font-bold">
+                  TCP <spn className="text-[#f16104]">Pro</spn>
+                </h2>
               </div>
             </div>
             <div>
@@ -576,12 +535,12 @@ export default function Home() {
               <p className="mb-4 text-gray-400">
                 Reach out to us via email for updates and industry insights.
               </p>
-              <p className="text-gray-500 font-medium">info@tcppro.com</p>
+              <p className="text-gray-500 font-medium">sales@tcp-pro.com</p>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">
             <p className="text-gray-400">
-              &copy; 2023 TCP Pro. All rights reserved.
+              &copy; 2025 TCP Pro. All rights reserved.
             </p>
           </div>
         </div>
