@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   Menu,
@@ -23,104 +21,15 @@ import {
   ArrowRight,
 } from "lucide-react";
 import TrafficControlStrategies from "@/components/TraficControl";
-import { useState } from "react";
-import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import GetStarted from "@/components/GetStarted";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Header */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 flex justify-between items-center pt-2.5 md:py-2.5">
-          {/* Logo */}
-          <div
-            className="text-2xl font-bold flex text-[#f16104] cursor-pointer"
-            onClick={() => {
-              setIsOpen(false); // Close menu after clicking a link
-              document.getElementById("home")?.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-              });
-            }}
-          >
-            <Image
-              src={"/images/final_logo.jpg"}
-              alt="Company Logo"
-              width={210}
-              height={100}
-              className="md:p-2 w-28"
-            />
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 font-bold">
-            {[
-              "Home",
-              "Why Choose Us",
-              "Services",
-              "Industries",
-              "Our Projects",
-              "Contact",
-            ].map((item) => (
-              <button
-                key={item}
-                onClick={() => {
-                  document.getElementById(item.toLowerCase())?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center", // Ensures it scrolls to the top of the section
-                  });
-                }}
-                className="text-gray-600 hover:text-[#f16104] transition duration-300"
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden bg-white border border-gray-300 p-2 rounded-md"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation - Slide Down Effect */}
-        <nav
-          className={`md:hidden flex flex-col space-y-4 bg-white px-4 pb-4 transition-all duration-300 ease-in-out ${
-            isOpen
-              ? "max-h-96 opacity-100"
-              : "max-h-0 opacity-0 overflow-hidden"
-          }`}
-        >
-          {[
-            "Home",
-            "Why Choice Us",
-            "Services",
-            "Industries",
-            "Our Projects",
-            "Contact",
-          ].map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                setIsOpen(false); // Close menu after clicking a link
-                document.getElementById(item.toLowerCase())?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-              className="text-gray-600 hover:text-[#f16104] transition duration-300 text-left"
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section
@@ -140,18 +49,7 @@ export default function Home() {
                 <span className="text-[#f16104]">312-222-1111</span> or Email{" "}
                 <span className="text-[#f16104]">sales@tcp-pro.com</span>
               </p>
-              <button
-                onClick={() => {
-                  setIsOpen(false); // Close menu after clicking a link
-                  document.getElementById("contact")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  });
-                }}
-                className="bg-[#f16104] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300"
-              >
-                Get Started Today
-              </button>
+              <GetStarted />
             </div>
             <div className="md:w-1/2">
               <Image
@@ -478,79 +376,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 text-[#f16104]">
-                TCP Pro
-              </h3>
-              <p className="mb-4 text-gray-400">
-                Your trusted partner for Traffic Control Plans across the USA.
-              </p>
-              <div className="text-2xl font-bold flex text-[#f16104] relative">
-                <Image
-                  src={"/images/transparentLogo.png"}
-                  alt="Company Logo"
-                  width={110}
-                  height={100}
-                  className="p-2 w-28"
-                />
-                <h2 className="absolute bottom-8 left-[4.2rem] text-20 text-white text-2xl font-bold">
-                  TCP <spn className="text-[#f16104]">Pro</spn>
-                </h2>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-[#f16104]">
-                Quick Links
-              </h3>
-              <ul className="space-y-2">
-                {[
-                  "Home",
-                  "Why Choose",
-                  "Services",
-                  "Industries",
-                  "Our Projects",
-                  "Contact",
-                ].map((item) => (
-                  <li key={item}>
-                    <button
-                      onClick={() => {
-                        document
-                          .getElementById(
-                            item.toLowerCase().replace(/\s+/g, "-")
-                          )
-                          ?.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center",
-                          });
-                      }}
-                      className="text-gray-400 hover:text-[#f16104] transition duration-300"
-                    >
-                      {item}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-[#f16104]">
-                Stay Connected
-              </h3>
-              <p className="mb-4 text-gray-400">
-                Reach out to us via email for updates and industry insights.
-              </p>
-              <p className="text-gray-500 font-medium">sales@tcp-pro.com</p>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-            <p className="text-gray-400">
-              &copy; 2025 TCP Pro. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
