@@ -342,11 +342,14 @@ export default function Home() {
 
         {/* Contact Section */}
         <section className="py-20 bg-gradient-to-r from-red-50 to-gray-50">
-          <div className="container mx-auto px-4" id="contact">
+          <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-800">
               Get Started <span className="text-[#f16104]">Today</span>
             </h2>
-            <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
+            <div
+              className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12"
+              id="contact"
+            >
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
                   Contact Information
