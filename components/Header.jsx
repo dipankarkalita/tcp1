@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { Link } from "react-scroll";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,7 +18,7 @@ const Header = () => {
             setIsOpen(false); // Close menu after clicking a link
             document.getElementById("home")?.scrollIntoView({
               behavior: "smooth",
-              block: "center",
+              block: "start",
             });
           }}
         >
@@ -39,18 +41,17 @@ const Header = () => {
             "Our Projects",
             "Contact",
           ].map((item) => (
-            <button
+            <Link
               key={item}
-              onClick={() => {
-                document.getElementById(item.toLowerCase())?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center", // Ensures it scrolls to the top of the section
-                });
-              }}
-              className="text-gray-600 hover:text-[#f16104] transition duration-300"
+              to={item.toLowerCase()}
+              smooth={true}
+              duration={500} // Adjust duration if needed
+              offset={-50} // Adjust the offset if the scroll position is incorrect
+              onClick={() => setIsOpen(false)} // Close menu after clicking
+              className="text-gray-600 hover:text-[#f16104] transition duration-300 text-left cursor-pointer"
             >
               {item}
-            </button>
+            </Link>
           ))}
         </nav>
 
@@ -78,19 +79,17 @@ const Header = () => {
           "Our Projects",
           "Contact",
         ].map((item) => (
-          <button
+          <Link
             key={item}
-            onClick={() => {
-              setIsOpen(false); // Close menu after clicking a link
-              document.getElementById(item.toLowerCase())?.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-              });
-            }}
+            to={item.toLowerCase()}
+            smooth={true}
+            duration={500} // Adjust duration if needed
+            offset={-50} // Adjust the offset if the scroll position is incorrect
+            onClick={() => setIsOpen(false)} // Close menu after clicking
             className="text-gray-600 hover:text-[#f16104] transition duration-300 text-left"
           >
             {item}
-          </button>
+          </Link>
         ))}
       </nav>
     </header>
