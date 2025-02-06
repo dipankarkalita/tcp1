@@ -8,9 +8,9 @@ const GetStarted = () => {
       <Link
         to={"contact"}
         smooth={true}
-        duration={500} // Adjust duration if needed
-        offset={-50} //
-        className="bg-[#f16104] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300 cursor-default"
+        duration={500}
+        offset={-50}
+        className="bg-[#f16104] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md transition duration-300 cursor-pointer"
       >
         Get Started Today
       </Link>

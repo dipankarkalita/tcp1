@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex justify-between items-center pt-2.5 md:py-2.5">
+      <div className={`container mx-auto px-4 flex justify-between items-center pt-2.5 md:py-2.5 ${isOpen ? " mb-4" : ""} md:mb-0`}>
         {/* Logo */}
         <div
           className="text-2xl font-bold flex text-[#f16104] cursor-pointer"
@@ -67,8 +67,8 @@ const Header = () => {
 
       {/* Mobile Navigation - Slide Down Effect */}
       <nav
-        className={`md:hidden flex flex-col space-y-4 bg-white px-4 pb-4 transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        className={`md:hidden flex flex-col space-y-4 bg-white px-4 pb-4 transition-all duration-300 ease-in-out  border-t ${
+          isOpen ? "max-h-96 opacity-100  pt-4" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
         {[
