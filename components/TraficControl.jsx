@@ -112,6 +112,7 @@ export default function TrafficControlStrategies() {
                   alt={strategy.title}
                   width={500}
                   height={300}
+                  loading="lazy"
                   className="rounded-lg shadow-md my-4 w-full cursor-pointer"
                   onClick={() => openModal(strategy.img)}
                 />

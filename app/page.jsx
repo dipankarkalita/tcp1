@@ -60,6 +60,7 @@ export default function Home() {
               <Image
                 src={"/images/img2.jpg"}
                 alt="Traffic Control"
+                loading="lazy"
                 width={700}
                 height={400}
                 className="rounded-lg shadow-2xl transform hover:scale-105 transition duration-300"
