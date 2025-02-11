@@ -20,7 +20,12 @@ import {
   Wifi,
   ArrowRight,
 } from "lucide-react";
-import TrafficControlStrategies from "@/components/TraficControl";
+import dynamic from "next/dynamic";
+
+const TrafficControlStrategies = dynamic(
+  () => import("@/components/TraficControl"),
+  { ssr: true } // Set to false if you don't want it to be server-side rendered
+);
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GetStarted from "@/components/GetStarted";

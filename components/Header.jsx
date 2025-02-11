@@ -73,7 +73,7 @@ const Header = () => {
       >
         {[
           "Home",
-          "Why Choice Us",
+          "Why Choose Us",
           "Services",
           "Industries",
           "Our Projects",
