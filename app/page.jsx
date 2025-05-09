@@ -51,7 +51,7 @@ export default function Home() {
                 Your Trusted Nationwide Partner for Traffic Control Plans – Fast
                 Service, Unbeatable Prices Starting at{" "}
                 <span className="text-[#f16104]">$49</span>! <br /> Call{" "}
-                <span className="text-[#f16104]">312-222-1111</span> or Email{" "}
+                <span className="text-[#f16104]">+1-872-262-0370</span> or Email{" "}
                 <span className="text-[#f16104]">sales@tcp-pro.com</span>
               </p>
               <GetStarted />
@@ -362,16 +362,15 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-4 text-gray-600 grid grid-cols-1 md:grid-cols-2">
                   <li className="flex items-center">
-                    <Phone className="h-5 w-5 mr-2 text-[#f16104]" /> (555)
-                    123-4567
+                    <Phone className="h-5 w-5 mr-2 text-[#f16104]" />{" "}
+                    +1-872-262-0370
                   </li>
                   <li className="flex items-center">
                     <Mail className="h-5 w-5 mr-2 text-[#f16104]" />{" "}
                     sales@tcp-pro.com
                   </li>
                   <li className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2 text-[#f16104]" /> 123
-                    Traffic Control St, City, State 12345
+                    <MapPin className="h-5 w-5 mr-2 text-[#f16104]" /> 7234 W North Ave, Ste 208, Chicago IL 60707
                   </li>
                   <li className="flex items-center">
                     <Clock className="h-5 w-5 mr-2 text-[#f16104]" /> Monday –
